@@ -1,15 +1,15 @@
 #!/bin/bash
 #### this script monitors openethereum height and restarts it if too many errors (no height or height not growing)
-
+### usage: screen -S openethereum-monitor-and-restart -h 100000 ./openethereum-monitor-and-restart.sh
 
 ######### vars
-prometheus_port=85455 #### default installation is 9615
-prometheus_host="127.0.0.1"
-service_name="openethereum"
+####prometheus_port=85455 #### default installation is 9615
+####prometheus_host="127.0.0.1"
+service_name="openethereum" #### systemd service name
 ###metric_height='substrate_block_height' ### openethereum cant export promethers metrics
 log_time_zone="UTC"
-allowed_fails=9
-sleep_after_restart="5m"
+allowed_fails=9 #### how much consecutive fails allowed
+sleep_after_restart="5m" #### how much minutes to sleep after restarting service
 
 
 ############### functions
